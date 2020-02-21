@@ -32,8 +32,9 @@ process for installing a Symfony application.
 .. code-block:: sql
 
   create database pi;
+  create user if not exists pi@localhost;
   grant all on pi.* to pi@localhost;
-  set password for pi@localhost = password('hotpockets');
+  set password for pi@localhost = password('abc123');
 
 4. `Install composer`_ if it isn't already installed somewhere.
   
@@ -55,28 +56,36 @@ Sometimes composer runs out of memory. If that happens, try this alternate.
    `var/sessions/*`. The symfony docs provide `recommended commands`_
    depending on your OS.
   
-7. Load the schema into the database. This is done with the 
+7. If you have affiliation with the DHIL lab and have the required data for this project, you could run below command in the terminal to directly insert the data into the database and skip steps 8 and 9.
+  
+.. code-block:: bash
+
+  mysql -u pi -p pi < pi-2020-01-22-dhil-r30.sql
+   
+If you don't have the data, then proceed to step 8 and 9
+    
+8. Load the schema into the database. This is done with the 
    symfony console.
   
 .. code-block:: bash
 
   ./bin/console doctrine:schema:update --force
   
-8. Create an application user with full admin privileges. This is also done 
+9. Create an application user with full admin privileges. This is also done 
    with the symfony console.
   
 .. code-block:: bash
 
   ./bin/console fos:user:create --super-admin  
   
-9. Install bower, npm, and nodejs if you haven't already. Then use bower to 
+10. Install bower, npm, and nodejs if you haven't already. Then use bower to 
    download and install the javascript and css dependencies.
   
 .. code-block:: bash
 
   bower install
 
-10. Configure the web server. The application's `web/` directory must
+11. Configure the web server. The application's `web/` directory must
     be accessible to the world. Symfony provides `example
     configurations`_ for most server setups.
 
