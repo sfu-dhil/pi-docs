@@ -18,9 +18,8 @@ Most of the application is configured with the symfony .env file present in the 
 
 3. Edit this .env.local file using any editor to make the below configuration changes.
 
-.. code-block:: yaml
+.. code-block:: bash
    
-   parameters:
      # Disable the mailer DSN by changing it to null://null
      MAILER_DSN=null://null
 
