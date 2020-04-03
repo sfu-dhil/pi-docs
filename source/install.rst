@@ -56,7 +56,7 @@ Sometimes composer runs out of memory. If that happens, try this alternate.
    `var/sessions/*`. The symfony docs provide `recommended commands`_
    depending on your OS.
   
-7. If you have affiliation with the DHIL lab and have the required data for this project, you could run below command in the terminal to directly insert the data into the database and skip steps 8 and 9.
+7. If you have affiliation with the DHIL lab and have the required data for this project, you could run below command in the terminal to directly insert the data into the database and skip steps 8 and 9. Make sure that you have the recent data available and it would be different from the below mentioned one in the future. The example format would be like "pi-2020-03-25-dhil-r35.sql" with date mentioned in it. Please use the recent data file instead of the below given one.
   
 .. code-block:: bash
 
@@ -76,7 +76,7 @@ If you don't have the data, then proceed to step 8 and 9
   
 .. code-block:: bash
 
-  ./bin/console nines:create:user --super-admin  
+  ./bin/console nines:create:user  
   
 10. If you haven't installed npm and yarn globally, you will have to install them. You could do this by running the below commands in the terminal.
   
@@ -93,7 +93,7 @@ If you don't have the data, then proceed to step 8 and 9
 
 12. Please follow the instructions in the config.rst file to set up the configuration settings for this project.
 
-13. Configure the web server. The application's `web/` directory must
+13. Configure the web server. The application's `public/` directory must
     be accessible to the world. Symfony provides `example
     configurations`_ for most server setups.
 
@@ -105,6 +105,12 @@ If you don't have the data, then proceed to step 8 and 9
 
 At this point, the web interface should be up and running, and you should
 be able to login by following the Login link in the top right menu bar.
+
+15. Once everything is done, you should stop the Symfomny server. Before you close the terminal, make sure to stop the server using this command.
+  
+.. code-block:: bash
+
+  symfony server:stop
 
 That should be it.
 
